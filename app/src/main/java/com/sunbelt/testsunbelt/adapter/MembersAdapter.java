@@ -36,20 +36,23 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.ViewHold
     }
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView imageMembers;
-        TextView lblNombreCompania,lblTierCompania;
+        TextView lblNombreCompania,lblTierCompania,lblMountDonate;
         public ViewHolder (@NonNull View itemMemberView){
             super(itemMemberView);
             imageMembers=(ImageView)itemMemberView.findViewById(R.id.imageMembers);
             lblNombreCompania=(TextView)itemMemberView.findViewById(R.id.lblNombreCompania);
             lblTierCompania=(TextView)itemMemberView.findViewById(R.id.lblTierCompania);
+            lblMountDonate=(TextView)itemMemberView.findViewById(R.id.lblMountDonate);
 
         }
     }
 
     @Override
     public void onBindViewHolder(@NonNull MembersAdapter.ViewHolder viewHolder,int i){
+        String montoDonado="$"+members.get(i).getTotalAmountDonated();
         viewHolder.lblNombreCompania.setText(members.get(i).getName());
         viewHolder.lblTierCompania.setText(members.get(i).getTier());
+        viewHolder.lblMountDonate.setText(montoDonado);
         Picasso.get().load(members.get(i).getImage()).into(viewHolder.imageMembers);
     }
 

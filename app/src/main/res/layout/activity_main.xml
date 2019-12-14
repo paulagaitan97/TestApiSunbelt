@@ -7,8 +7,12 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/rvListMembers"/>
+    </ScrollView>
 </LinearLayout>
