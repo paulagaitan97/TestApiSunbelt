@@ -19,10 +19,10 @@ public class MemberPresenter {
     private MemberService memberService;
     ArrayList<Members> membersModel;
 
-    public  MemberPresenter(MemberView view){
-        this.memberView=view;
-        if(this.memberService==null){
-            this.memberService=new MemberService();
+    public MemberPresenter(MemberView view) {
+        this.memberView = view;
+        if (this.memberService == null) {
+            this.memberService = new MemberService();
         }
     }
 
@@ -34,7 +34,7 @@ public class MemberPresenter {
                 .enqueue(new Callback<List<Members>>() {
                     @Override
                     public void onResponse(Call<List<Members>> call, Response<List<Members>> response) {
-                        membersModel=new ArrayList<>(response.body());
+                        membersModel = new ArrayList<>(response.body());
                         memberView.memberReady(membersModel);
                     }
 

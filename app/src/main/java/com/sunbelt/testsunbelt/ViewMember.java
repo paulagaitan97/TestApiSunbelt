@@ -34,14 +34,11 @@ public class ViewMember extends AppCompatActivity {
     TextView lblValorMovimient;
     @BindView(R.id.lblSocialMail)
     TextView lblSocialMail;
-    @BindView(R.id.lblSocialGit)
-    TextView lblSocialGit;
-    @BindView(R.id.lblSocialTw)
-    TextView lblSocialTw;
     @BindView(R.id.lblSocialWeb)
     TextView lblSocialWeb;
 
-    Members membersGet=null;
+    Members membersGet = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +53,7 @@ public class ViewMember extends AppCompatActivity {
         loadData();
     }
 
-    public void loadData(){
+    public void loadData() {
         lblNombreMember.setText(membersGet.getName());
         lblRoleMember.setText(membersGet.getRole());
         lblLevelMember.setText(membersGet.getTier());
@@ -66,16 +63,15 @@ public class ViewMember extends AppCompatActivity {
         lblMoneda.setText(membersGet.getCurrency());
         lblUltMovimiento.setText(membersGet.getLastTransactionAt());
         lblValorMovimient.setText(String.valueOf(membersGet.getLastTransactionAmount()));
-        lblSocialMail.setText(String.valueOf(membersGet.getEmail()));
-        lblSocialGit.setText(String.valueOf(membersGet.getGithub()));
-        lblSocialTw.setText(String.valueOf(membersGet.getTwitter()));
+        lblSocialMail.setText(String.valueOf(membersGet.getProfile()));
         lblSocialWeb.setText(String.valueOf(membersGet.getWebsite()));
     }
+
     @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch (item.getItemId()){
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
             case android.R.id.home:
-                Intent intent = new Intent(ViewMember.this,MainActivity.class);
+                Intent intent = new Intent(ViewMember.this, MainActivity.class);
                 startActivity(intent);
                 finishAffinity();
                 return true;

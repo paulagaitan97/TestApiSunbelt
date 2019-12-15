@@ -25,7 +25,7 @@ import butterknife.ButterKnife;
  * los datos de la vista y ella misma. Proporciona acceso a los elementos.
  */
 
-public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.ViewHolder>{
+public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.ViewHolder> {
     // contexto de la vista
     private Context context;
     //lista de members
@@ -38,7 +38,7 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.ViewHold
 
     //cantidad de members en la lista
     @Override
-    public int getItemCount(){
+    public int getItemCount() {
         return members.size();
     }
 
@@ -46,11 +46,12 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.ViewHold
 
     @NonNull
     @Override
-    public MembersAdapter.ViewHolder onCreateViewHolder (@NonNull ViewGroup viewGroup, int i){
-        View viewDetailMembers= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.detail_members,viewGroup,false);
-        return  new MembersAdapter.ViewHolder(viewDetailMembers);
+    public MembersAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View viewDetailMembers = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.detail_members, viewGroup, false);
+        return new MembersAdapter.ViewHolder(viewDetailMembers);
     }
-    public class ViewHolder extends RecyclerView.ViewHolder{
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.imageMembers)
         ImageView imageMembers;
         CardView cvMembers;
@@ -60,33 +61,39 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.ViewHold
         TextView lblTierCompania;
         @BindView(R.id.lblMountDonate)
         TextView lblMountDonate;
-        Members getMember=null;
+        Members getMember = null;
         int code;
-        public ViewHolder (@NonNull View itemMemberView){
+
+        public ViewHolder(@NonNull View itemMemberView) {
             super(itemMemberView);
-            ButterKnife.bind(this,itemMemberView);
-            cvMembers=(CardView)itemMemberView.findViewById(R.id.cvMembers);
-            cvMembers.setOnClickListener(new View.OnClickListener(){
+            ButterKnife.bind(this, itemMemberView);
+            cvMembers = (CardView) itemMemberView.findViewById(R.id.cvMembers);
+            cvMembers.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View v) {
-                    Intent viewMember=new Intent(v.getContext(),ViewMember.class);
-                    viewMember.putExtra("ObjectMember",getMember);
+                    Intent viewMember = new Intent(v.getContext(), ViewMember.class);
+                    viewMember.putExtra("ObjectMember", getMember);
                     v.getContext().startActivity(viewMember);
                 }
             });
         }
     }
 
+    /**
+     *Metodo que actualiza el contenido del itemView para reflejar los cambios en cada posición.
+     * @param viewHolder Vh que debe actulizarse para representar el contenido del elemento
+     * @param i posición del elemento del la lista de members
+     */
     @Override
-    public void onBindViewHolder(@NonNull MembersAdapter.ViewHolder viewHolder,int i){
-        String montoDonado="$"+members.get(i).getTotalAmountDonated();
+    public void onBindViewHolder(@NonNull MembersAdapter.ViewHolder viewHolder, int i) {
+        String montoDonado = "$" + members.get(i).getTotalAmountDonated();
         viewHolder.lblNombreCompania.setText(members.get(i).getName());
         viewHolder.lblTierCompania.setText(members.get(i).getTier());
         viewHolder.lblMountDonate.setText(montoDonado);
         Picasso.get().load(members.get(i).getImage()).into(viewHolder.imageMembers);
-        viewHolder.code=members.get(i).getMemberId();
-        viewHolder.getMember=new Members(members.get(i).getMemberId(),members.get(i).getCreatedAt(),members.get(i).getType(),members.get(i).getRole(),members.get(i).getTier(),members.get(i).getIsActive(),members.get(i).getTotalAmountDonated(),members.get(i).getCurrency(),members.get(i).getLastTransactionAt(),members.get(i).getTotalAmountDonated(),members.get(i).getProfile(),members.get(i).getName(),members.get(i).getCompany(),members.get(i).getDescription(),members.get(i).getImage(),members.get(i).getEmail(),members.get(i).getTwitter(),members.get(i).getGithub(),members.get(i).getWebsite());
+        viewHolder.code = members.get(i).getMemberId();
+        viewHolder.getMember = new Members(members.get(i).getMemberId(), members.get(i).getCreatedAt(), members.get(i).getType(), members.get(i).getRole(), members.get(i).getTier(), members.get(i).getIsActive(), members.get(i).getTotalAmountDonated(), members.get(i).getCurrency(), members.get(i).getLastTransactionAt(), members.get(i).getTotalAmountDonated(), members.get(i).getProfile(), members.get(i).getName(), members.get(i).getCompany(), members.get(i).getDescription(), members.get(i).getImage(), members.get(i).getEmail(), members.get(i).getTwitter(), members.get(i).getGithub(), members.get(i).getWebsite());
     }
 
 }

@@ -8,6 +8,10 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
 
+/**
+ * Clase que verifica el estado de la red
+ * y conexión de la red movil con wifi o datos moviles.
+ */
 public class ReceptorConectividad extends BroadcastReceiver {
 
     public static ConnectivityReceiverListener connectivityReceiverListener;

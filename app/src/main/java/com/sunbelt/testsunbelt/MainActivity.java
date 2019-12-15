@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements MemberView, Recep
     MembersAdapter membersAdapter;
     @BindView(R.id.rvListMembers)
     RecyclerView rvListMembers;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements MemberView, Recep
 
     @Override
     public void memberReady(ArrayList<Members> members) {
-        membersAdapter=new MembersAdapter(MainActivity.this,members);
+        membersAdapter = new MembersAdapter(MainActivity.this, members);
         rvListMembers.setAdapter(membersAdapter);
     }
 
@@ -53,13 +54,13 @@ public class MainActivity extends AppCompatActivity implements MemberView, Recep
     private void showSnack(boolean isConnected) {
         if (isConnected) {
             boolean isDataNetwork = ReceptorConectividad.isOnlineNet();
-            if(isDataNetwork) {
+            if (isDataNetwork) {
                 MemberPresenter memberPresenter = new MemberPresenter(this);
                 memberPresenter.getMembers();
-            }else{
+            } else {
                 Toast.makeText(this, "No tiene internet", Toast.LENGTH_SHORT).show();
             }
-        }else{
+        } else {
             Toast.makeText(this, "No tiene internet", Toast.LENGTH_SHORT).show();
         }
     }
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements MemberView, Recep
         super.onResume();
         checkConnection();
     }
+
     @Override
     public void onNetworkConnectionChanged(boolean isConnected) {
         showSnack(isConnected);
