@@ -8,6 +8,16 @@
     tools:context=".ViewMember"
     android:orientation="vertical">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginBottom="10dp">
+
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,24 +30,16 @@
             android:adjustViewBounds="true"
             android:src="@drawable/iconmembers"
             android:scaleType="centerCrop"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:layout_marginBottom="10dp"/>
     </com.google.android.material.card.MaterialCardView>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_margin="10dp">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#979595"
-            android:id="@+id/cvAbout">
+            android:id="@+id/cvAbout"
+            android:layout_margin="10dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -132,7 +134,7 @@
             android:layout_height="wrap_content"
             android:background="#979595"
             android:id="@+id/cvMovement"
-            android:layout_marginTop="10dp">
+            android:layout_margin="10dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -227,8 +229,7 @@
             android:layout_height="wrap_content"
             android:background="#979595"
             android:id="@+id/cvSocial"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp">
+            android:layout_margin="10dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

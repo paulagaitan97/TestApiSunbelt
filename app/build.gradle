@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'com.jakewharton.butterknife'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -17,6 +17,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    // Butterknife requires Java 8.
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -29,12 +34,14 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     //implementación gson
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    //implentación recycleView
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
-
-    // implementación cardView para layout
+    // implementación cardView para la vista detalle members
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.google.android.material:material:1.1.0-alpha02'
     implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.jakewharton:butterknife:10.2.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
 
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 

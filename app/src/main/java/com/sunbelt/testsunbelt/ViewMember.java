@@ -6,18 +6,42 @@ import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.squareup.picasso.Picasso;
 import com.sunbelt.testsunbelt.model.Members;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class ViewMember extends AppCompatActivity {
+    @BindView(R.id.ivMembers)
     ImageView ivMembers;
-    TextView lblNombreMember,lblRoleMember,lblLevelMember,lblDateMember,lblTotalDonado,lblMoneda,lblUltMovimiento,lblValorMovimient,lblSocialMail,lblSocialGit,lblSocialTw,lblSocialWeb;
+    @BindView(R.id.lblNombreMember)
+    TextView lblNombreMember;
+    @BindView(R.id.lblRoleMember)
+    TextView lblRoleMember;
+    @BindView(R.id.lblLevelMember)
+    TextView lblLevelMember;
+    @BindView(R.id.lblDateMember)
+    TextView lblDateMember;
+    @BindView(R.id.lblTotalDonado)
+    TextView lblTotalDonado;
+    @BindView(R.id.lblMoneda)
+    TextView lblMoneda;
+    @BindView(R.id.lblUltMovimiento)
+    TextView lblUltMovimiento;
+    @BindView(R.id.lblValorMovimient)
+    TextView lblValorMovimient;
+    @BindView(R.id.lblSocialMail)
+    TextView lblSocialMail;
+    @BindView(R.id.lblSocialGit)
+    TextView lblSocialGit;
+    @BindView(R.id.lblSocialTw)
+    TextView lblSocialTw;
+    @BindView(R.id.lblSocialWeb)
+    TextView lblSocialWeb;
+
     Members membersGet=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,23 +51,9 @@ public class ViewMember extends AppCompatActivity {
         final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_material);
         upArrow.setColorFilter(getResources().getColor(R.color.colorWhite), PorterDuff.Mode.SRC_ATOP);
         getSupportActionBar().setHomeAsUpIndicator(upArrow);
-        Intent i = getIntent();
-        membersGet = (Members) i.getSerializableExtra("ObjectMember");
-        ivMembers=(ImageView) findViewById(R.id.ivMembers);
-        lblNombreMember=(TextView)findViewById(R.id.lblNombreMember);
-        lblRoleMember=(TextView)findViewById(R.id.lblRoleMember);
-        lblLevelMember=(TextView)findViewById(R.id.lblLevelMember);
-        lblDateMember=(TextView)findViewById(R.id.lblDateMember);
 
-        lblTotalDonado=(TextView)findViewById(R.id.lblTotalDonado);
-        lblMoneda=(TextView)findViewById(R.id.lblMoneda);
-        lblUltMovimiento=(TextView)findViewById(R.id.lblUltMovimiento);
-        lblValorMovimient=(TextView)findViewById(R.id.lblValorMovimient);
-
-        lblSocialMail=(TextView)findViewById(R.id.lblSocialMail);
-        lblSocialGit=(TextView)findViewById(R.id.lblSocialGit);
-        lblSocialTw=(TextView)findViewById(R.id.lblSocialTw);
-        lblSocialWeb=(TextView)findViewById(R.id.lblSocialWeb);
+        ButterKnife.bind(this);
+        membersGet = (Members) getIntent().getSerializableExtra("ObjectMember");
         loadData();
     }
 
@@ -68,7 +78,7 @@ public class ViewMember extends AppCompatActivity {
             case android.R.id.home:
                 Intent intent = new Intent(ViewMember.this,MainActivity.class);
                 startActivity(intent);
-                finish();
+                finishAffinity();
                 return true;
         }
         return super.onOptionsItemSelected(item);
