@@ -3,11 +3,13 @@ package com.sunbelt.testsunbelt.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Clase representativa de members
  */
 
-public class Members {
+public class Members implements Serializable {
 
     @SerializedName("MemberId")
     @Expose
@@ -66,6 +68,29 @@ public class Members {
     @SerializedName("website")
     @Expose
     private String website;
+
+
+    public Members(Integer memberId, String createdAt, String type, String role, String tier, Boolean isActive, Integer totalAmountDonated, String currency, String lastTransactionAt, Integer lastTransactionAmount, String profile, String name, Object company, String description, String image, Object email, Object twitter, Object github, String website) {
+        this.memberId = memberId;
+        this.createdAt = createdAt;
+        this.type = type;
+        this.role = role;
+        this.tier = tier;
+        this.isActive = isActive;
+        this.totalAmountDonated = totalAmountDonated;
+        this.currency = currency;
+        this.lastTransactionAt = lastTransactionAt;
+        this.lastTransactionAmount = lastTransactionAmount;
+        this.profile = profile;
+        this.name = name;
+        this.company = company;
+        this.description = description;
+        this.image = image;
+        this.email = email;
+        this.twitter = twitter;
+        this.github = github;
+        this.website = website;
+    }
 
     public Integer getMemberId() {
         return memberId;
