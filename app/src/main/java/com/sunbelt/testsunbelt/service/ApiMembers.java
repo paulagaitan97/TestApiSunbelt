@@ -1,7 +1,6 @@
 package com.sunbelt.testsunbelt.service;
 
 import com.sunbelt.testsunbelt.model.Members;
-
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.GET;
