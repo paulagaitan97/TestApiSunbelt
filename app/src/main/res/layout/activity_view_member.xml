@@ -18,10 +18,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:background="@drawable/iconmembers"
-            android:scaleType="centerCrop" />
+            android:src="@drawable/iconmembers"
+            android:scaleType="centerCrop"
+            android:layout_margin="10dp"/>
     </com.google.android.material.card.MaterialCardView>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,10 +62,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nombre memer"
+                        android:text="Nombre member"
                         android:fontFamily="@font/madeevolvesanslight"
                         android:layout_marginLeft="5dp"
-                        android:layout_gravity="center_vertical"/>
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/lblNombreMember"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -79,7 +84,8 @@
                         android:text="Role member"
                         android:fontFamily="@font/madeevolvesanslight"
                         android:layout_marginLeft="5dp"
-                        android:layout_gravity="center_vertical"/>
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/lblRoleMember"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -96,7 +102,8 @@
                         android:text="Nivel member"
                         android:fontFamily="@font/madeevolvesanslight"
                         android:layout_marginLeft="5dp"
-                        android:layout_gravity="center_vertical"/>
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/lblLevelMember"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -114,7 +121,8 @@
                         android:text="Fecha añadir member"
                         android:fontFamily="@font/madeevolvesanslight"
                         android:layout_marginLeft="5dp"
-                        android:layout_gravity="center_vertical"/>
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/lblDateMember"/>
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -152,7 +160,8 @@
                         android:text="$0"
                         android:fontFamily="@font/madeevolvesanslight"
                         android:layout_marginLeft="5dp"
-                        android:layout_gravity="center_vertical"/>
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/lblTotalDonado"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -170,7 +179,8 @@
                         android:text="Moneda"
                         android:fontFamily="@font/madeevolvesanslight"
                         android:layout_marginLeft="5dp"
-                        android:layout_gravity="center_vertical"/>
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/lblMoneda"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -187,7 +197,8 @@
                         android:text="Fecha ultio movimiento"
                         android:fontFamily="@font/madeevolvesanslight"
                         android:layout_marginLeft="5dp"
-                        android:layout_gravity="center_vertical"/>
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/lblUltMovimiento"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -205,12 +216,109 @@
                         android:text="$0"
                         android:fontFamily="@font/madeevolvesanslight"
                         android:layout_marginLeft="5dp"
-                        android:layout_gravity="center_vertical"/>
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/lblValorMovimient"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#979595"
+            android:id="@+id/cvSocial"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="10dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Social"
+                    android:fontFamily="@font/theboldfont"
+                    android:textSize="25dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_people" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No registra"
+                        android:fontFamily="@font/madeevolvesanslight"
+                        android:layout_marginLeft="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/lblSocialMail"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_people" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No registra"
+                        android:fontFamily="@font/madeevolvesanslight"
+                        android:layout_marginLeft="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/lblSocialGit"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_people" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No registra"
+                        android:fontFamily="@font/madeevolvesanslight"
+                        android:layout_marginLeft="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/lblSocialTw"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_people" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No registra"
+                        android:fontFamily="@font/madeevolvesanslight"
+                        android:layout_marginLeft="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/lblSocialWeb"/>
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
-
+    </ScrollView>
 
 
 </LinearLayout>

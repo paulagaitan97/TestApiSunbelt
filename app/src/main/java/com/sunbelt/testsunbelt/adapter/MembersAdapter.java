@@ -7,8 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,20 +16,30 @@ import com.sunbelt.testsunbelt.ViewMember;
 import com.sunbelt.testsunbelt.model.Members;
 import java.util.ArrayList;
 
-public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.ViewHolder>{
 
+/**
+ * La Clase MembersAdapter es un objeto adapter que actua como puente entre
+ * los datos de la vista y ella misma. Proporciona acceso a los elementos.
+ */
+
+public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.ViewHolder>{
+    // contexto de la vista
     private Context context;
-    private ArrayList<Members> members=new ArrayList<>();
+    //lista de members
+    private ArrayList<Members> members;
 
     public MembersAdapter(Context context, ArrayList<Members> members) {
         this.context = context;
         this.members = members;
     }
 
+    //cantidad de members en la lista
     @Override
     public int getItemCount(){
         return members.size();
     }
+
+    //La clase MembersAdapter es responsable de crear una vista para cada elemento del conjunto de datos
 
     @NonNull
     @Override
