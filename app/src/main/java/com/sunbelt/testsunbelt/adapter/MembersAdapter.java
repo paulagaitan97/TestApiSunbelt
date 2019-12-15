@@ -16,6 +16,9 @@ import com.sunbelt.testsunbelt.ViewMember;
 import com.sunbelt.testsunbelt.model.Members;
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 /**
  * La Clase MembersAdapter es un objeto adapter que actua como puente entre
@@ -48,17 +51,20 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.ViewHold
         return  new MembersAdapter.ViewHolder(viewDetailMembers);
     }
     public class ViewHolder extends RecyclerView.ViewHolder{
+        @BindView(R.id.imageMembers)
         ImageView imageMembers;
         CardView cvMembers;
-        TextView lblNombreCompania,lblTierCompania,lblMountDonate;
+        @BindView(R.id.lblNombreCompania)
+        TextView lblNombreCompania;
+        @BindView(R.id.lblTierCompania)
+        TextView lblTierCompania;
+        @BindView(R.id.lblMountDonate)
+        TextView lblMountDonate;
         Members getMember=null;
         int code;
         public ViewHolder (@NonNull View itemMemberView){
             super(itemMemberView);
-            imageMembers=(ImageView)itemMemberView.findViewById(R.id.imageMembers);
-            lblNombreCompania=(TextView)itemMemberView.findViewById(R.id.lblNombreCompania);
-            lblTierCompania=(TextView)itemMemberView.findViewById(R.id.lblTierCompania);
-            lblMountDonate=(TextView)itemMemberView.findViewById(R.id.lblMountDonate);
+            ButterKnife.bind(this,itemMemberView);
             cvMembers=(CardView)itemMemberView.findViewById(R.id.cvMembers);
             cvMembers.setOnClickListener(new View.OnClickListener(){
 

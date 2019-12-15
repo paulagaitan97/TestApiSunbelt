@@ -14,6 +14,8 @@ import com.sunbelt.testsunbelt.view.ApiMembers;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -24,12 +26,13 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayList<Members> membersModel = new ArrayList<>();
     MembersAdapter membersAdapter;
+    @BindView(R.id.rvListMembers)
     RecyclerView rvListMembers;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        rvListMembers=(RecyclerView)findViewById(R.id.rvListMembers);
+        ButterKnife.bind(this);
         rvListMembers.setLayoutManager(new LinearLayoutManager(this));
         getResponseApi();
     }

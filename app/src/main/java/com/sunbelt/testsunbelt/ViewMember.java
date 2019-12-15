@@ -1,7 +1,6 @@
 package com.sunbelt.testsunbelt;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
